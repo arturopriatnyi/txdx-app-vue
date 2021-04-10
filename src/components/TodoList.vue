@@ -1,6 +1,7 @@
 <template>
   <div class="todo-list">
     <TodoInput />
+    <Todo text="Init Txdx project" priority completed />
     <Todo text="Build Txdx with Vue" priority />
     <Todo text="Add Vuex to Txdx" />
     <Todo text="Refactor the whole project and prepare for production" />

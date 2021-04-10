@@ -1,5 +1,9 @@
 <template>
-  <div :class="`todo ${priority ? 'priority' : ''}`">
+  <div
+    :class="`todo ${priority ? 'priority' : ''} ${
+      completed ? 'completed' : ''
+    }`"
+  >
     <p>{{ text }}</p>
     <div class="icons">
       <div class="icon">
@@ -18,6 +22,7 @@ export default {
   props: {
     text: String,
     priority: Boolean,
+    completed: Boolean,
   },
 };
 </script>
@@ -35,6 +40,9 @@ export default {
   border: 2px solid steelblue;
   color: steelblue;
   font-style: italic;
+}
+.completed {
+  text-decoration: line-through;
 }
 p {
   margin: 0px;
