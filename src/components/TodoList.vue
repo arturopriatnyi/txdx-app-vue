@@ -16,30 +16,22 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex';
+
 import TodoInput from './TodoInput';
 import Todo from './Todo';
 
 export default {
   name: 'TodoList',
   components: { TodoInput, Todo },
-  computed: {
-    todos() {
-      return this.$store.state.todos;
-    },
-  },
+  computed: mapState(['todos']),
   methods: {
-    onAddTodo(todoText) {
-      this.$store.commit('addTodo', todoText);
-    },
-    onToggleCompleted(id) {
-      this.$store.commit('toggleCompleted', id);
-    },
-    onTogglePriority(id) {
-      this.$store.commit('togglePriority', id);
-    },
-    onDelete(id) {
-      this.$store.commit('delete', id);
-    },
+    ...mapMutations({
+      onAddTodo: 'addTodo',
+      onToggleCompleted: 'toggleCompleted',
+      onTogglePriority: 'togglePriority',
+      onDelete: 'delete',
+    }),
   },
 };
 </script>
