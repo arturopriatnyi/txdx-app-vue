@@ -1,22 +1,25 @@
 <template>
   <div class="txdx">
     <h1>Txdx</h1>
-    <TodoInput />
+    <TodoList />
   </div>
 </template>
 
 <script>
-import TodoInput from './TodoInput';
+import TodoList from './TodoList';
 
 export default {
   name: 'Txdx',
   components: {
-    TodoInput,
+    TodoList,
   },
 };
 </script>
 
 <style scoped>
+* {
+  font-family: 'Roboto', sans-serif;
+}
 .txdx {
   max-width: 750px;
   width: 100%;
