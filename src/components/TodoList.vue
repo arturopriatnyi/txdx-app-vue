@@ -1,11 +1,11 @@
 <template>
   <div class="todo-list">
     <TodoInput />
-    <Todo text="Build Txdx with Vue" />
+    <Todo text="Build Txdx with Vue" priority />
     <Todo text="Add Vuex to Txdx" />
     <Todo text="Refactor the whole project and prepare for production" />
     <Todo text="Maybe add Nuxt?" />
-    <Todo text="Continue learning Vue" />
+    <Todo text="Continue learning Vue" priority />
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="todo">
+  <div :class="`todo ${priority ? 'priority' : ''}`">
     <p>{{ text }}</p>
     <div class="icons">
       <div class="icon">
@@ -17,6 +17,7 @@ export default {
   name: 'Todo',
   props: {
     text: String,
+    priority: Boolean,
   },
 };
 </script>
@@ -29,6 +30,11 @@ export default {
   padding: 10px;
   border: 1px solid steelblue;
   border-radius: 15px;
+}
+.priority {
+  border: 2px solid steelblue;
+  color: steelblue;
+  font-style: italic;
 }
 p {
   margin: 0px;
