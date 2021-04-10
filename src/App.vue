@@ -1,19 +1,23 @@
 <template>
-  <h1>Txdx</h1>
+  <div class="app">
+    <Txdx />
+  </div>
 </template>
 
 <script>
+import Txdx from './components/Txdx';
+
 export default {
   name: 'App',
+  components: { Txdx },
 };
 </script>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,900&display=swap');
-h1 {
-  font-size: 3em;
-  font-family: 'Roboto', sans-serif;
-  font-style: italic;
-  color: steelblue;
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>
