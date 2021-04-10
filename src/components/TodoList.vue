@@ -7,6 +7,7 @@
         :text="todo.text"
         :priority="todo.priority"
         :completed="todo.completed"
+        :onToggleCompleted="onToggleCompleted"
         :onTogglePriority="onTogglePriority"
         :onDelete="onDelete"
       />
@@ -41,6 +42,11 @@ export default {
         completed: false,
       });
       console.log(this.todos);
+    },
+    onToggleCompleted(id) {
+      this.todos = this.todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      );
     },
     onTogglePriority(id) {
       this.todos = this.todos.map((todo) =>

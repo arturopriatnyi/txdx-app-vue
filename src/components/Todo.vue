@@ -4,7 +4,7 @@
       completed ? 'completed' : ''
     }`"
   >
-    <p>{{ text }}</p>
+    <p v-on:click="toggleTodoCompleted()">{{ text }}</p>
     <div class="icons">
       <div class="icon" v-on:click="toggleTodoPriority()">
         <unicon name="exclamation-circle" fill="steelblue" />
@@ -24,10 +24,14 @@ export default {
     text: String,
     priority: Boolean,
     completed: Boolean,
+    onToggleCompleted: Function,
     onTogglePriority: Function,
     onDelete: Function,
   },
   methods: {
+    toggleTodoCompleted() {
+      this.onToggleCompleted(this.id);
+    },
     toggleTodoPriority() {
       this.onTogglePriority(this.id);
     },
