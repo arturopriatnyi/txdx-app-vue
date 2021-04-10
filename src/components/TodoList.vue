@@ -19,42 +19,26 @@
 import TodoInput from './TodoInput';
 import Todo from './Todo';
 
-let nextId = 0;
-
 export default {
   name: 'TodoList',
   components: { TodoInput, Todo },
-  data() {
-    return {
-      todos: [],
-    };
+  computed: {
+    todos() {
+      return this.$store.state.todos;
+    },
   },
   methods: {
-    getNextId() {
-      nextId++;
-      return nextId;
-    },
     onAddTodo(todoText) {
-      this.todos.push({
-        id: this.getNextId(),
-        text: todoText,
-        priority: false,
-        completed: false,
-      });
-      console.log(this.todos);
+      this.$store.commit('addTodo', todoText);
     },
     onToggleCompleted(id) {
-      this.todos = this.todos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      );
+      this.$store.commit('toggleCompleted', id);
     },
     onTogglePriority(id) {
-      this.todos = this.todos.map((todo) =>
-        todo.id === id ? { ...todo, priority: !todo.priority } : todo
-      );
+      this.$store.commit('togglePriority', id);
     },
     onDelete(id) {
-      this.todos = this.todos.filter((todo) => todo.id !== id);
+      this.$store.commit('delete', id);
     },
   },
 };
