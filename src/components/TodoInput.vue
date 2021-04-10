@@ -1,12 +1,33 @@
 <template>
   <div class="todo-input">
-    <input type="text" placeholder="Type a todo..." />
+    <input
+      type="text"
+      placeholder="Type a todo..."
+      v-model="todoText"
+      v-on:keyup.enter="addTodo()"
+    />
   </div>
 </template>
 
 <script>
 export default {
   name: 'TodoInput',
+  data() {
+    return {
+      todoText: '',
+    };
+  },
+  props: {
+    onAddTodo: Function,
+  },
+  methods: {
+    addTodo() {
+      if (this.todoText !== '') {
+        this.onAddTodo(this.todoText);
+        this.todoText = '';
+      }
+    },
+  },
 };
 </script>
 
