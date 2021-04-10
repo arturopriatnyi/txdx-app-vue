@@ -33,11 +33,12 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  border: 2px solid steelblue;
+  border: 2px solid #ccc;
   border-radius: 15px;
 }
 .priority {
   color: steelblue;
+  border: 2px solid steelblue;
   font-style: italic;
 }
 .completed {
