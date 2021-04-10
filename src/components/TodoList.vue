@@ -8,6 +8,7 @@
         :priority="todo.priority"
         :completed="todo.completed"
         :onTogglePriority="onTogglePriority"
+        :onDelete="onDelete"
       />
     </div>
   </div>
@@ -45,6 +46,9 @@ export default {
       this.todos = this.todos.map((todo) =>
         todo.id === id ? { ...todo, priority: !todo.priority } : todo
       );
+    },
+    onDelete(id) {
+      this.todos = this.todos.filter((todo) => todo.id !== id);
     },
   },
 };

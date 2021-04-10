@@ -6,10 +6,10 @@
   >
     <p>{{ text }}</p>
     <div class="icons">
-      <div class="icon" v-on:click="togglePriority()">
+      <div class="icon" v-on:click="toggleTodoPriority()">
         <unicon name="exclamation-circle" fill="steelblue" />
       </div>
-      <div class="icon">
+      <div class="icon" v-on:click="deleteTodo()">
         <unicon name="trash" fill="tomato" />
       </div>
     </div>
@@ -25,10 +25,14 @@ export default {
     priority: Boolean,
     completed: Boolean,
     onTogglePriority: Function,
+    onDelete: Function,
   },
   methods: {
-    togglePriority() {
+    toggleTodoPriority() {
       this.onTogglePriority(this.id);
+    },
+    deleteTodo() {
+      this.onDelete(this.id);
     },
   },
 };
