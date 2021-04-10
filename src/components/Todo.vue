@@ -6,7 +6,7 @@
   >
     <p>{{ text }}</p>
     <div class="icons">
-      <div class="icon">
+      <div class="icon" v-on:click="togglePriority()">
         <unicon name="exclamation-circle" fill="steelblue" />
       </div>
       <div class="icon">
@@ -20,9 +20,16 @@
 export default {
   name: 'Todo',
   props: {
+    id: Number,
     text: String,
     priority: Boolean,
     completed: Boolean,
+    onTogglePriority: Function,
+  },
+  methods: {
+    togglePriority() {
+      this.onTogglePriority(this.id);
+    },
   },
 };
 </script>

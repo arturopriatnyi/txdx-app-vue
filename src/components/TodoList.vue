@@ -3,9 +3,11 @@
     <TodoInput :onAddTodo="onAddTodo" />
     <div v-for="todo in todos" :key="todo.id">
       <Todo
+        :id="todo.id"
         :text="todo.text"
         :priority="todo.priority"
         :completed="todo.completed"
+        :onTogglePriority="onTogglePriority"
       />
     </div>
   </div>
@@ -38,6 +40,11 @@ export default {
         completed: false,
       });
       console.log(this.todos);
+    },
+    onTogglePriority(id) {
+      this.todos = this.todos.map((todo) =>
+        todo.id === id ? { ...todo, priority: !todo.priority } : todo
+      );
     },
   },
 };
