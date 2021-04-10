@@ -1,12 +1,18 @@
 <template>
   <div class="txdx">
     <h1>Txdx</h1>
+    <TodoInput />
   </div>
 </template>
 
 <script>
+import TodoInput from './TodoInput';
+
 export default {
   name: 'Txdx',
+  components: {
+    TodoInput,
+  },
 };
 </script>
 
